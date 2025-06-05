@@ -561,3 +561,17 @@ VALUES	 	(1, 1, 1 )
 -- --------------------------------------------------------------------------------
 SELECT COUNT(TE.intEventID) AS TotalEvents
 FROM TEvents AS TE
+
+-- --------------------------------------------------------------------------------
+-- Aggregate #2  -- only pulling donations
+-- --------------------------------------------------------------------------------
+SELECT TE.dtmEventDate
+,COUNT(TEGS.intSponsorID) AS TotalSponsors
+FROM TEvents AS TE 
+JOIN TEventGolfers AS TEG
+	ON TE.intEventID = TEG.intEventID
+JOIN TEventGolferSponsors AS TEGS
+	ON TEGS.intEventGolferID = TEG.intEventGolferID
+JOIN TSponsors AS TS
+	ON TS.intSponsorID = TEGS.intSponsorID								
+Group By TE.dtmEventDate
