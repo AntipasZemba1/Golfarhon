@@ -343,3 +343,215 @@ ALTER TABLE TCorporateSponsors ADD CONSTRAINT TCorporateSponsors_TStates_FK
 FOREIGN KEY ( intStateID ) REFERENCES TStates (intStateID )
 
 
+-- --------------------------------------------------------------------------------
+-- Add Records into Shirt Sizes
+-- --------------------------------------------------------------------------------
+INSERT INTO TShirtSizes ( intShirtSizeID, strShirtSizeDesc )
+VALUES	 	( 1, 'Mens Small' )
+		,( 2, 'Mens Medium' )
+		,( 3, 'Mens Large' )
+		,( 4, 'Mens XLarge' )
+		,( 5, 'Womens Small' )
+		,( 6, 'Womens Medium' )
+		,( 7, 'Womens Large' )
+		,( 8, 'Womens XLarge' )
+
+
+-- --------------------------------------------------------------------------------
+-- Add Records into States
+-- --------------------------------------------------------------------------------
+
+INSERT INTO TStates ( intStateID, strStateDesc )
+VALUES	 	( 1, 'Ohio' )
+		,( 2, 'Kentucky' )
+		,( 3, 'Indiana' )
+
+-- --------------------------------------------------------------------------------
+-- Add Records into Golfers
+-- --------------------------------------------------------------------------------
+INSERT INTO TGolfers( intGolferID, strFirstName, strLastName, strAddress, strCity, intStateID, strZip, strPhoneNumber, strEmail, intShirtSizeID, intGenderID )
+VALUES	 	( 1, 'Ron', 'Doug', '8741 Rosebrook Drive', 'Florence', 2, '41042', '8597602063', 'rdoug@gmail.com', 4, 1)
+		,( 2, 'Jay', 'Max', '1111 SHDHS Drive', 'Florence', 2, '41042', '8597602222', 'jmax@gmail.com', 4, 1)
+		,( 3, 'Jesus', 'Chirst', '4444 Tobertge Drive', 'Hebron', 2, '41012', '8597603333', 'jc@gmail.com', 4, 2)
+		,( 4, 'Hill', 'Sony', '2222 Track', 'Ft. Thomas', 2, '41018', '8592222063', 'hsony@gmail.com', 4, 1)
+		,( 5, 'Marra', 'May', '2222 Track', 'Ft. Thomas', 2, '41018', '8592222063', 'mm@gmail.com', 4, 1)
+		
+-- --------------------------------------------------------------------------------
+-- Add Records into Event Years
+-- --------------------------------------------------------------------------------
+
+INSERT INTO TEvents ( intEventID, dtmEventdate )
+VALUES	 	( 1, '2015' )
+		,( 2, '2016' )
+		,( 3, '2017' )
+		,( 4, '2018' )
+
+-- --------------------------------------------------------------------------------
+-- Add Records into Genders
+-- --------------------------------------------------------------------------------
+
+INSERT INTO TGenders ( intGenderID, strGenderDesc )
+VALUES	 	( 1, 'Male' )
+		,( 2, 'Female' )	
+ 
+
+-- --------------------------------------------------------------------------------
+-- Add Records into Levels
+-- --------------------------------------------------------------------------------
+
+INSERT INTO TLevelofTeams ( intLevelofTeamID, strLevelDesc )
+VALUES	 	( 1, 'Freshman' )
+		,( 2, 'Junior Varsity' )
+		,( 3, 'Varsity' )
+	
+-- --------------------------------------------------------------------------------
+-- Add Records into Type of Teams
+-- --------------------------------------------------------------------------------
+
+INSERT INTO TTypeofTeams ( intTypeofTeamID, strTypeofTeamDesc )
+VALUES	 	( 1, 'Basketball' )
+		,( 2, 'Baseball' )
+		,( 3, 'Football' )
+		,( 4, 'Volleyball' )
+		,( 5, 'Soccer' )
+		,( 6, 'Cross Country' )
+		,( 7, 'Track' )
+		,( 8, 'Softball' )
+		,( 9, 'Golf' )
+		,( 10, 'Swimming' )
+
+
+-- --------------------------------------------------------------------------------
+-- Add Records into EventGolfers
+-- --------------------------------------------------------------------------------
+
+INSERT INTO TEventGolfers ( intEventGolferID, intEventID, intGolferID, strReasonforPlaying ) 
+VALUES	 	(1, 1, 1, 'Love Golf')
+		,(2, 1, 2, 'Love Playing Golf')
+		,(3, 2, 1, 'Love Playing A lot of Golf')
+		,(4, 2, 2, 'Love Raising Money')
+		,(5, 1, 3, 'Love Money')
+		,(6, 2, 3, 'Love Raising A lot of Money')
+		,(7, 3, 4, 'Love Golf')
+
+
+-- --------------------------------------------------------------------------------
+-- Add Records into TeamandClubs xx
+-- --------------------------------------------------------------------------------
+
+INSERT INTO TTeamandClubs ( intTeamandClubID, intGenderID, intLevelofTeamID, intTypeofTeamID ) 
+VALUES	 	( 1, 1, 1, 9 )
+		,( 2, 1, 2, 9 )
+		,( 3, 2, 3, 3 )
+		,( 4, 1, 3, 9 )
+		,( 5, 2, 3, 9 )
+		,( 6, 2, 3, 4 )
+		,( 7, 1, 3, 3 )
+		,( 8, 1, 3, 4 )
+
+
+-- --------------------------------------------------------------------------------
+-- Add Records into EventGolferTeamandClubs 
+-- --------------------------------------------------------------------------------
+
+INSERT INTO TEventGolferTeamandClubs ( intEventGolferTeamandClubID, intEventGolferID, intTeamandClubID ) 
+VALUES		 ( 1, 1, 1 )
+		,( 2, 1, 2 )
+		,( 3, 2, 3 )
+		,( 4, 1, 4 )
+		,( 5, 2, 5 )
+		,( 6, 3, 6 )
+		,( 7, 3, 7 )
+		,( 8, 4, 8 )
+
+
+-- --------------------------------------------------------------------------------
+-- Add Records into Sponsors
+-- --------------------------------------------------------------------------------
+
+INSERT INTO TSponsors( intSponsorID, strFirstName, strLastName, strAddress, strCity, intStateID, strZip, strPhoneNumber, strEmail )
+VALUES	 	( 1, 'Joe', 'Clark', '8741 Rosebrook Drive', 'Florence', 2, '41042', '8597602063', '@gmail.com')
+		,( 2, 'Ray', 'Way', '1111 SHDHS Drive', 'Florence', 2, '41042', '8597602222', '@gmail.com')
+		,( 3, 'Mark', 'Beimesch', '4444 Tobertge Drive', 'Hebron', 2, '41012', '8597603333', '@gmail.com')
+		,( 4, 'Trid', 'Raymond', '1111 Track', 'Ft. Thomas', 2, '41018', '8592222063', '@gmail.com')
+		,( 5, 'Olive', 'Mbemba', '3333 Track', 'Ft. Thomas', 2, '41018', '8592222063', '@gmail.com')
+		,( 6, 'Chill', 'Netflix', '2222 Track', 'Ft. Thomas', 2, '41018', '8592222063', '@gmail.com')
+		,( 7, 'Liz', 'Monro', '2222 Track', 'Ft. Thomas', 2, '41018', '8592222063', '@gmail.com')
+		,( 8, 'David', 'Linville', '2222 Track', 'Ft. Thomas', 2, '41018', '8592222063', '@gmail.com')
+		,( 9, 'Greg', 'Yvey', '2222 SHDHS Drive', 'Florence', 2, '41042', '8597602222', '@gmail.com')
+		,( 10, 'Adam', 'Libumu', '3333 SHDHS Drive', 'Florence', 2, '41042', '8597602222', '@gmail.com')
+		,( 11, 'Matam', 'Potts', '9999 SHDHS Drive', 'Florence', 2, '41042', '8597602222', '@gmail.com')
+		,( 12, 'Li', 'Soko', '7777 SHDHS Drive', 'Florence', 2, '41042', '8597602222', '@gmail.com')
+
+
+-- --------------------------------------------------------------------------------
+-- Add Records into Payment Type
+-- --------------------------------------------------------------------------------
+
+INSERT INTO TPaymentTypes ( intPaymentTypeID, strPaymentTypeDesc )
+VALUES	 	( 1, 'Check' )
+		,( 2, 'Cash' )
+		,( 3, 'Credit Card' )
+		
+-- --------------------------------------------------------------------------------
+-- Add Records into Sponsor Type
+-- --------------------------------------------------------------------------------
+
+INSERT INTO TPaymentStatuses ( intPaymentStatusID, strPaymentStatuseDesc)
+VALUES	 	( 1, 'Unpaid' )
+		,( 2, 'Paid' )
+	
+-- --------------------------------------------------------------------------------
+-- Add Records into EventGolferSponsors
+-- --------------------------------------------------------------------------------
+
+INSERT INTO TEventGolferSponsors( intEventGolferSponsorID, intEventGolferID, intSponsorID, monPledgeAmount, dteDateofPledge, intPaymentStatusID, intPaymentTypeID ) 
+VALUES		 (1, 1, 1, 1.00,'1/1/2016', 2, 3 )
+		,(2, 1, 1, .50, '1/1/2016', 2, 3 )
+		,(3, 1, 2, .25, '1/1/2016', 1, 1 )
+		,(4, 2, 3, 2.00,'1/1/2016',2, 1 )
+		,(5, 2, 4, 25.00, '1/1/2016', 2, 1 )
+		,(6, 3, 5, .20, '1/1/2016', 2, 1 )
+		,(7, 3, 6, 1.00, '1/1/2016', 1, 1 )
+		,(8, 4, 7, 25.00, '1/1/2016', 2, 3 )
+
+-- --------------------------------------------------------------------------------
+-- Add Records into CorporateSponsorshipTypes
+-- --------------------------------------------------------------------------------
+
+INSERT INTO TCorporateSponsorshipTypes(  intCorporateSponsorshipTypeID, strTypeDescription )
+VALUES	 	(1, 'Cart Sponsor' )
+		,(2, 'Lunch Sponsor' )
+		,(3, 'Shirt Sponsor' )
+
+-- --------------------------------------------------------------------------------
+-- Add Records into EventCorporateSponsorshipTypes
+-- --------------------------------------------------------------------------------
+
+INSERT INTO TEventCorporateSponsorshipTypes( intEventCorporateSponsorshipTypeID, intEventID, intCorporateSponsorshipTypeID, monTypeCost ,intAvailable)
+VALUES	 	(1, 1, 1, 500.00, 3 )
+		,(2, 1, 2, 200.00, 3 )
+		,(3, 2, 2, 100.00, 1 )
+		,(4, 1, 3, 2000.00, 1 )
+
+-- --------------------------------------------------------------------------------
+-- Add Records into   CorporateSponsors 
+-- --------------------------------------------------------------------------------
+									
+INSERT INTO TCorporateSponsors( intCorporateSponsorID, strCompanyName, strFirstName, strLastName, strAddress, strCity, intStateID, strZip, strPhoneNumber, strEmail ) 
+VALUES	 	(1, 'ABC Company', 'Joey', 'Clark', '8741 Rosebrook Drive', 'Florence',  2, '41042', '8597602063', '@gmail.com' )
+		,(2, 'CCBS Company', 'Ray', 'Way', '1111 SHDHS Drive',  'Erlanger',  2, '41042', '8597602222', '@gmail.com')
+		,(3, 'TRES Company', 'Mark', 'Beimesch', '4444 Tobertge Drive',  'Hebron', 2, '41012', '8597603333', '@gmail.com')
+		,(4, 'Getta Company','David', 'Linville', '2222 Track', 'Walton', 2, '41018', '8592222063', '@gmail.com')
+		 
+
+-- --------------------------------------------------------------------------------
+-- Add Records into  EventCorporateSponsorshipTypeCorporateSponsors
+-- --------------------------------------------------------------------------------
+									
+INSERT INTO TEventCorporateSponsorshipTypeCorporateSponsors( intEventCorporateSponsorshipTypeCorporateSponsorID, intEventCorporateSponsorshipTypeID, intCorporateSponsorID ) 
+VALUES	 	(1, 1, 1 )
+		,(2, 1, 2 )
+		,(3, 2, 3 )
+		,(4, 3, 1 )
+		,(5, 4, 4 )
