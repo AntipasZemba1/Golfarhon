@@ -58,7 +58,7 @@ CREATE TABLE TGolfers
 	,strAddress			VARCHAR(255)	NOT NULL
 	,strCity			VARCHAR(255)	NOT NULL
 	,intStateID			INTEGER		NOT NULL
-	,strZip				ARCHAR(255)	NOT NULL
+	,strZip				VARCHAR(255)	NOT NULL
 	,strPhoneNumber			VARCHAR(255)	NOT NULL
 	,strEmail			VARCHAR(255)	NOT NULL
 	,intShirtSizeID			Integer		NOT NULL
@@ -223,3 +223,38 @@ CREATE TABLE TCorporateSponsors
 	,strEmail				VARCHAR(255)	NOT NULL
 	,CONSTRAINT TCorporateSponsors_PK PRIMARY KEY ( intCorporateSponsorID )
 )
+
+-- --------------------------------------------------------------------------------
+-- Step #1.2: Identify and Create Foreign Keys
+-- --------------------------------------------------------------------------------
+--
+-- #	Child						Parent					Column(s)
+-- -	-----						------					---------
+-- 1	TGolfer						TShirtSizes				intShirtSizeID   --
+-- 2	TEventGolfers					TEvents					intEventID --
+-- 3	TEventGolfers					TGolfers				intGolferID --
+
+-- 4	TEventGolferTeamandClubs			TEventGolfers				intEventGolferID --
+
+-- 5	TEventGolferTeamandClubs			TTeamandClubs				intTeamandClubID --
+-- 6	TTeamandClubs					TTypeofTeams				intTypeofTeamID --
+-- 7	TTeamandClubs					TLevelofTeams				intLevelofTeamID --
+-- 8	TTeamandClubs					TGenders				intGenderID --
+
+-- 9	TEventGolferSponsorships			TEventGolfers				intEventGolferID --
+-- 10	TEventGolferSponsorships			TSponsors				intSponsorID --
+-- 11	TEventGolferSponsorships			TPaymentTypes				intPaymentTypeID  --
+-- 12	TEventGolferSponsorships			TPaymentStatuses			TPaymentStatusID --
+	
+-- 13	TEventCorporateSponsorshipTypes			TEvents					intEventID --
+-- 14	TEventCorporateSponsorshipTypes			TCorporateSponsorshipTypes		intCorporateSponsorshipTypeID --
+
+-- 15	TEventCorporateSponsorshipTypeBenefits		TEventCorporateSponsorshipsTypes	intEventCorporateSponsorshipsTypeID
+-- 16	TEventCorporateSponsorshipTypeBenefits		TBenefits				intBenefitID 
+-- 17	TEventCorporateSponsorshipTypeCorporateSponsors	TEventCorporateSponsorTypes		intEventCorporateSponsorshipsTypeID
+-- 18	TEventCorporateSponsorshipTypeCorporateSponsors	TCorporateSponsors			intCorporateSponsorID
+
+-- 19	TGolfer						TStates					intStateID
+-- 20	TSponsors					TStates					intStateID
+-- 21	TCorporateSponsors				TStates					intStateID
+			
