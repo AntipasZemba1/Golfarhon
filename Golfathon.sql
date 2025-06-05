@@ -258,3 +258,88 @@ CREATE TABLE TCorporateSponsors
 -- 20	TSponsors					TStates					intStateID
 -- 21	TCorporateSponsors				TStates					intStateID
 			
+-- 1
+ALTER TABLE TGolfers ADD CONSTRAINT TGolfer_TShirtSizes_FK
+FOREIGN KEY ( intShirtSizeID ) REFERENCES TShirtSizes ( intShirtSizeID )
+
+-- 2
+ALTER TABLE TEventGolfers ADD CONSTRAINT TEventGolfers_TEvents_FK
+FOREIGN KEY ( intEventID ) REFERENCES TEvents ( intEventID )
+
+-- 3
+ALTER TABLE TEventGolfers ADD CONSTRAINT TEventGolfers_TGolfers_FK
+FOREIGN KEY ( intGolferID ) REFERENCES TGolfers ( intGolferID )
+
+-- 4
+ALTER TABLE TEventGolferTeamandClubs ADD CONSTRAINT TEventGolferTeamandClubs_TEventGolfers_FK
+FOREIGN KEY ( intEventGolferID ) REFERENCES TEventGolfers ( intEventGolferID )
+
+-- 5
+ALTER TABLE TEventGolferTeamandClubs ADD CONSTRAINT TEventGolferTeamandClubs_TTeamandClubs_FK
+FOREIGN KEY ( intTeamandClubID ) REFERENCES TTeamandClubs ( intTeamandClubID )
+
+-- 6
+ALTER TABLE TTeamandClubs ADD CONSTRAINT TTeamandClubs_TTypeofTeams_FK
+FOREIGN KEY ( intTypeofTeamID ) REFERENCES TTypeofTeams( intTypeofTeamID )
+
+-- 7
+ALTER TABLE TTeamandClubs ADD CONSTRAINT TTeamandClubs_TLevelofTeams_FK
+FOREIGN KEY ( intLevelofTeamID ) REFERENCES TLevelofTeams ( intLevelofTeamID )
+
+-- 8
+ALTER TABLE TTeamandClubs ADD CONSTRAINT TTeamandClubs_TGenders_FK
+FOREIGN KEY ( intGenderID ) REFERENCES TGenders ( intGenderID )
+
+-- 9
+ALTER TABLE TEventGolferSponsors ADD CONSTRAINT TEventGolferSponsors_TEventGolfers_FK
+FOREIGN KEY ( intEventGolferID ) REFERENCES TEventGolfers (intEventGolferID )
+
+-- 10
+ALTER TABLE TEventGolferSponsors ADD CONSTRAINT TEventGolferSponsors_TSponsor_FK
+FOREIGN KEY ( intSponsorID ) REFERENCES TSponsors ( intSponsorID )
+
+-- 11
+ALTER TABLE TEventGolferSponsors ADD CONSTRAINT TEventGolferSponsors_TPaymentType_FK
+FOREIGN KEY ( intPaymentTypeID ) REFERENCES TPaymentTypes ( intPaymentTypeID )
+
+-- 12
+ALTER TABLE TEventGolferSponsors ADD CONSTRAINT TEventGolferSponsors_TPaymentStatuses_FK
+FOREIGN KEY ( intPaymentStatusID ) REFERENCES TPaymentStatuses ( intPaymentStatusID )
+
+-- 13
+ALTER TABLE TEventCorporateSponsorshipTypes ADD CONSTRAINT TEventCorporateSponsorshipTypes_TEvents_FK
+FOREIGN KEY ( intEventID ) REFERENCES TEvents ( intEventID )
+
+-- 14
+ALTER TABLE TEventCorporateSponsorshipTypes ADD CONSTRAINT TEventCorporateSponsorshipTypes_TCorporateSponsorshipTypes_FK
+FOREIGN KEY ( intCorporateSponsorshipTypeID ) REFERENCES TCorporateSponsorshipTypes ( intCorporateSponsorshipTypeID )
+
+-- 15
+ALTER TABLE TEventCorporateSponsorshipTypeBenefits	 ADD CONSTRAINT TEventCorporateSponsorshipTypeBenefits_TEventCorporateSponsorshipTypes_FK
+FOREIGN KEY ( intEventCorporateSponsorshipTypeID ) REFERENCES TEventCorporateSponsorshipTypes ( intEventCorporateSponsorshipTypeID )
+
+-- 16
+ALTER TABLE TEventCorporateSponsorshipTypeBenefits ADD CONSTRAINT TEventCorporateSponsorshipTypeBenefits_TBenefits_FK
+FOREIGN KEY ( intBenefitID  ) REFERENCES TBenefits( intBenefitID  )
+
+-- 17
+ALTER TABLE TEventCorporateSponsorshipTypeCorporateSponsors ADD CONSTRAINT TEventCorporateSponsorshipTypeCorporateSponsors_TEventCorporateSponsorshipTypes_FK
+FOREIGN KEY ( intEventCorporateSponsorshipTypeID ) REFERENCES TEventCorporateSponsorshipTypes ( intEventCorporateSponsorshipTypeID )
+
+-- 18
+ALTER TABLE TEventCorporateSponsorshipTypeCorporateSponsors ADD CONSTRAINT TEventCorporateSponsorshipTypeCorporateSponsors_TCorporateSponsors_FK
+FOREIGN KEY ( intCorporateSponsorID ) REFERENCES TCorporateSponsors( intCorporateSponsorID )
+
+-- 19
+ALTER TABLE TGolfers ADD CONSTRAINT TGolfers_TStates_FK
+FOREIGN KEY ( intStateID ) REFERENCES TStates ( intStateID )
+
+-- 20
+ALTER TABLE TSponsors ADD CONSTRAINT TSponsors_TStates_FK
+FOREIGN KEY ( intStateID ) REFERENCES TStates ( intStateID )
+
+-- 21
+ALTER TABLE TCorporateSponsors ADD CONSTRAINT TCorporateSponsors_TStates_FK
+FOREIGN KEY ( intStateID ) REFERENCES TStates (intStateID )
+
+
