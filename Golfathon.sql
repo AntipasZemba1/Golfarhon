@@ -539,7 +539,7 @@ VALUES	 	(1, 1, 1, 500.00, 3 )
 -- --------------------------------------------------------------------------------
 									
 INSERT INTO TCorporateSponsors( intCorporateSponsorID, strCompanyName, strFirstName, strLastName, strAddress, strCity, intStateID, strZip, strPhoneNumber, strEmail ) 
-VALUES	 	(1, 'ABC Company', 'Joey', 'Clark', '8741 Rosebrook Drive', 'Florence',  2, '41042', '8597602063', '@gmail.com' )
+VALUES	 	 (1, 'ABC Company', 'Joey', 'Clark', '8741 Rosebrook Drive', 'Florence',  2, '41042', '8597602063', '@gmail.com' )
 		,(2, 'CCBS Company', 'Ray', 'Way', '1111 SHDHS Drive',  'Erlanger',  2, '41042', '8597602222', '@gmail.com')
 		,(3, 'TRES Company', 'Mark', 'Beimesch', '4444 Tobertge Drive',  'Hebron', 2, '41012', '8597603333', '@gmail.com')
 		,(4, 'Getta Company','David', 'Linville', '2222 Track', 'Walton', 2, '41018', '8592222063', '@gmail.com')
@@ -550,7 +550,7 @@ VALUES	 	(1, 'ABC Company', 'Joey', 'Clark', '8741 Rosebrook Drive', 'Florence',
 -- --------------------------------------------------------------------------------
 									
 INSERT INTO TEventCorporateSponsorshipTypeCorporateSponsors( intEventCorporateSponsorshipTypeCorporateSponsorID, intEventCorporateSponsorshipTypeID, intCorporateSponsorID ) 
-VALUES	 	(1, 1, 1 )
+VALUES	 	 (1, 1, 1 )
 		,(2, 1, 2 )
 		,(3, 2, 3 )
 		,(4, 3, 1 )
